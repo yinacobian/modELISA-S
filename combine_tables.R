@@ -68,10 +68,12 @@ kk2 <- apply(c_data,1, function(x){
 })
 kk2
 
-kk3 <- kk2
+#kk3 <- kk2
+c_data$heat <- kk2
 order_ant <- c('HIV-p24','GFP','Brisavirus','Vientovirus','Coronavirus 229E','Coronavirus HKU1','Norovirus')
-kk3$antigen <- factor(kk3$antigen,levels=rev(order_ant))
-
+c_data$antigen <- factor(c_data$antigen,levels=rev(order_ant))
+c_data <- c_data %>%
+  filter(!is.na(antigen))
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
 My_Theme = theme(
@@ -80,9 +82,9 @@ My_Theme = theme(
   axis.title.y = element_text(size = 10),
   axis.text.y = element_text(size = 5))
 
-png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
+png(height = 7, width = 7,units = 'in', res=300, file = 'heatmap.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
-ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
+ggplot(c_data, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
 #  scale_fill_gradient(low="red", high="blue") +
@@ -97,7 +99,7 @@ dev.off()
 sample_info_file <- "sample-to-info.csv"
 sample_info <- read.csv(sample_info_file,stringsAsFactors=FALSE)
 sample_info <- sample_info %>% mutate_if(is.character, str_trim)
-kk4 <- kk3 %>% mutate(SAMPLE_ID=sample,sample=NULL)
+kk4 <- c_data %>% mutate(SAMPLE_ID=sample,sample=NULL)
 kk5 <- left_join(kk4,sample_info, by="SAMPLE_ID")
 
 write_csv(kk5,"all_dilutions_at_threshold.csv")
@@ -113,26 +115,26 @@ IgG <- kk5[kk5$IG=='IgG',] %>%
 
 png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgA.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
-ggplot(IgA, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+ggplot(IgA, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   labs(fill='Dilution \nat threshold',
-       title='Flare') +
+       title='IgA') +
   My_Theme +
   coord_equal()
 dev.off()
 
 png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgG.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
-ggplot(IgG, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+ggplot(IgG, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   labs(fill='Dilution \nat threshold',
-       title='Flare') +
+       title='IgG') +
   My_Theme +
   coord_equal()
 dev.off()
