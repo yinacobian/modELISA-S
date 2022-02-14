@@ -109,11 +109,15 @@ write_csv(kk5,"all_dilutions_at_threshold.csv")
 ###Other plots that need edits based on group categories: 
 
 IgA <- kk5[kk5$IG=='IgA',] %>%
-        arrange(GROUP)
+        arrange(GROUP) %>%
+  mutate(heat=ifelse(heat<0,0,heat)) %>%
+  mutate(heat=ifelse(heat>100,100,heat))
 IgG <- kk5[kk5$IG=='IgG',] %>%
-       arrange(GROUP)
+  arrange(GROUP) %>%
+  mutate(heat=ifelse(heat<0,0,heat)) %>%
+  mutate(heat=ifelse(heat>100,100,heat))
 
-png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgA.png')
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgA-V2.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(IgA, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
@@ -126,7 +130,7 @@ ggplot(IgA, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) +
   coord_equal()
 dev.off()
 
-png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgG.png')
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgG-V2.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(IgG, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
