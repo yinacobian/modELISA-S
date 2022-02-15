@@ -3,6 +3,7 @@ library(readr)
 
 
 sample_to_info <- read_csv("sample-to-info.csv")
+tableFile <- "file-to-info.csv"
 if(! file.exists(tableFile)) stop('Error -- tableFile file not found.')
 file_table <- read.csv(tableFile,stringsAsFactors=FALSE)
 j_table <- left_join(file_table,sample_to_info,by =c("row_B_sample" = "SAMPLE_ID"))
