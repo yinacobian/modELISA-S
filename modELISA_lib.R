@@ -2,7 +2,7 @@ library(dplyr)
 
 standarize_table <- function(table,control_row) {
   
-  blank_mean <- mean(as.numeric(table[control_row,1:3]))
+  blank_mean <- mean(as.numeric(table[control_row,1:4]))
   
   adj_table <- (table-blank_mean) # %>% mutate_all(~replace(.,.x<0, 0))
   #adj_table <- tmp_table %>% mutate_all(~replace(.,.x<0, 0))
@@ -15,7 +15,7 @@ standarize_table <- function(table,control_row) {
 
 
 reblank_table <- function(table,control_row) {
-  blank_mean <- mean(as.numeric(table[control_row,1:3]))
+  blank_mean <- mean(as.numeric(table[control_row,1:4]))
   adj_table <- (table-blank_mean)
   return(adj_table)
 }
