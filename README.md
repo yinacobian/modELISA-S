@@ -6,7 +6,8 @@ Screening for viral antibodies in saliva samples, using a modified ELISA with vi
 
 
 1. Run spli_tables2.sh 
-2. Run Combine_Tables.R
+2. Run okate_to_color.R
+3. Run Combine_Tables.R
 
 Detailed instructions:
 
