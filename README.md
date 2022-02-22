@@ -25,10 +25,10 @@ A5:A8 Standard curve, replicate 1
 
 A9:A12 Standard curve, replicate 2
 
-1:4 Replicate 1
+B to H, 1:4 Replicate 1
 
-5:8 Replicate 2
+B to H, 5:8 Replicate 2
 
-9:12 Replicate 3
+B to H, 9:12 Replicate 3
 
 ![plates!](plate-setup.png)
