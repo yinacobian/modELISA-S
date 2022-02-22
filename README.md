@@ -12,11 +12,11 @@ Input:
 
 1. Text file from OD reader in plate format
 
-2. file-to-info
+2. file-to-info : Informatino about the plate setup and the samples order
 
-3. sample-to-info
+3. sample-to-info : Adittional information about the samples
 
-4. neg-pos-concentrations
+4. neg-pos-concentrations : Standard curve concentrations
 
 
 Output: 
