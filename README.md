@@ -12,7 +12,7 @@ Input:
 
 1. Text file from OD reader in plate format
 
-2. file-to-info : Informatino about the plate setup and the samples order
+2. file-to-info : Information about the plate setup and the samples order
 
 3. sample-to-info : Adittional information about the samples
 
