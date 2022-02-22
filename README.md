@@ -17,6 +17,10 @@ B) Available viral antigens
 
 ## Plates setup 
 
-This modular design allows to test several antigens in a single plate
+This modular design allows to test several antigens in a single plate.
+
+A1:A4 Blank
+A5:A8 Standard curve, replicate 1
+A9:A12 Standard curve, replicate 2
 
 ![plates!](plate-setup.png)
