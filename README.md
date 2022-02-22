@@ -8,6 +8,18 @@ Screening for viral antibodies in saliva samples, using a modified ELISA with vi
 1. Run spli_tables2.sh 
 2. Run Combine_Tables.R
 
+Detailed instructions:
+
+1) Make a folder for your experiment. Place the input files in the expetiment folder. Go to the experiment folder
+
+2) Run split_tables2.sh
+
+`bash ../split_tables2.sh 2022-02-18-SALIVA.txt `
+
+3) Run plate_to_color2.R
+
+`Rscript plate_to_color2.R`
+
 Input:
 
 1. Text file from OD reader in plate format
