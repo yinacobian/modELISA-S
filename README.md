@@ -21,6 +21,14 @@ Input:
 
 Output: 
 
+1. Visualization of OD readings
+
+2. Regression plos (pending)
+
+3. Table with dilution at threshold values
+
+4. Heatmap of dilution at threshold values
+
 ## Experimental setup
 
 Modified ELISA to detect antobodies that bind to viral antigens. 
