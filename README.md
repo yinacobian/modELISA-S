@@ -20,6 +20,10 @@ Run split_tables2.sh
 
 `bash ../split_tables2.sh 2022-02-18-SALIVA.txt `
 
+Run plate_to_color2.R
+
+`Rscript plate_to_color2.R`
+
 Input:
 
 1. Text file from OD reader in plate format
