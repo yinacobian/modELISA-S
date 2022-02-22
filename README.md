@@ -8,6 +8,19 @@ Screening for viral antibodies in saliva samples, using a modified ELISA with vi
 1. Run spli_tables2.sh 
 2. Run Combine_Tables.R
 
+Input:
+
+1. Text file from OD reader in plate format
+
+2. file-to-info
+
+3. sample-to-info
+
+4. neg-pos-concentrations
+
+
+Output: 
+
 ## Experimental setup
 
 Modified ELISA to detect antobodies that bind to viral antigens. 
