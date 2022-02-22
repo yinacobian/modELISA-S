@@ -10,6 +10,7 @@ Screening for viral antibodies in saliva samples, using a modified ELISA with vi
 Modified ELISA to detect antobodies that bind to viral epitopes. 
 
 A) Experimental setup
+
 B) Available viral epitopes
 
 ![experiment!](experiment-image.png)
