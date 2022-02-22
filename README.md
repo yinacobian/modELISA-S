@@ -17,4 +17,6 @@ B) Available viral epitopes
 
 ## Plates setup 
 
+This modular design allows to test several antigens in a single plate
+
 ![plates!](plate-setup.png)
