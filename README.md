@@ -14,3 +14,7 @@ A) Experimental setup
 B) Available viral epitopes
 
 ![experiment!](experiment-image.png)
+
+## Plates setup 
+
+![plates!](plate-setup.png)
