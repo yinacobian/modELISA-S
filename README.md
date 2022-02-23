@@ -1,6 +1,6 @@
 # modELISA-S
 
-![monalisadots!](monalisa-in-140dots.jpeg)
+![monalisadots!](monalisa-in-140dots.jpg)
 
 ## Use 
 
