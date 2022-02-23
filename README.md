@@ -1,6 +1,6 @@
 # modELISA-S
 
-modified ELISA 
+modified Enzyme-Linked ImmunoSorbent Assay --> modELISA
 
 ![monalisadots!](monalisa-in-140dots.jpg)
 
