@@ -44,7 +44,7 @@ Output:
 
 ## Experimental setup
 
-Modified ELISA to detect antobodies that bind to viral antigens. 
+Modified ELISA to detect antibodies that bind to viral antigens. 
 
 A) Experimental setup
 
