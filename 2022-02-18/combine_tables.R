@@ -7,26 +7,6 @@ tableFile <- "file-to-info.csv"
 if(! file.exists(tableFile)) stop('Error -- tableFile file not found.')
 file_table <- read.csv(tableFile,stringsAsFactors=FALSE)
 
-#c_row <- file_table[2,]
-#tablepath=paste0("table_parts/",sprintf("%02d",c_row$Plate_in_file),"_",tools::file_path_sans_ext(c_row$File_name),".tab")
-#raw_table <- read.table(tablepath)
-
-#sample_cols <- c("row_A_antigen","row_B_antigen","row_C_antigen",
-#                 "row_D_antigen","row_E_antigen","row_F_antigen",
-#                 "row_G_antigen","row_H_antigen")
-#standar_row <- min(which(c_row[,sample_cols]=="p24-standard"))
-#control_row <- min(which(c_row[,sample_cols]=="p24-standard"))
-
-#table <-reblank_table(raw_table,standar_row)
-#get_control_threshold(r_table,standar_row)
-
-
-
-#standar_table <- standarize_table(raw_table,standar_row)
-#standar_table$antibody <- as.list(c_row[,sample_cols])
-#standar_table$sample <- c_row$Sample_in_plate
-
-
 
 #standar_table
 
@@ -50,6 +30,10 @@ kk <- apply(file_table,1, function(x){
   standar_table$antigen <- unname(as.list(antigen_cols))
   standar_table$sample <- unname(as.list(sample_cols))
   standar_table$control_threshold <- rep(control_threshold,8)
+  standar_table$blank_1 <- standar_table[standar_row,1]
+  standar_table$blank_2 <- standar_table[standar_row,2]
+  standar_table$blank_3 <- standar_table[standar_row,3]
+  standar_table$blank_4 <- standar_table[standar_row,4]
   return(standar_table)
 })
 c_data <-reduce(kk,rbind) 
@@ -58,18 +42,24 @@ c_data <- c_data %>% mutate_all(simplify) %>% mutate_if(is.character, str_trim)
 c_data
 
 kk2 <- apply(c_data,1, function(x){
-  logdilutions <- log10(rep(c(1/300,1/900,1/2700,1/8100),3))
-  measurments <- as.numeric(c(x["X1"],x["X2"],x["X3"],x["X4"],
-                              x["X5"],x["X6"],x["X7"],x["X8"],
-                              x["X9"],x["X10"],x["X11"],x["X12"]))
+  logdilutions <- c(rep(c(1/300,1/900,1/2700,1/8100,0),3),0)
+  measurments <- as.numeric(c(x["X1"],x["X2"],x["X3"],x["X4"],x["blank_1"],
+                              x["X5"],x["X6"],x["X7"],x["X8"],x["blank_2"],
+                              x["X9"],x["X10"],x["X11"],x["X12"],x["blank_3"],x["blank_4"]))
   model <- lm(measurments ~ logdilutions)
   threshold <- as.numeric(x['control_threshold'])
-  return((threshold-model$coefficients[1])/model$coefficients[2])
+  ddata <- data.frame(heat=(threshold-model$coefficients[1])/model$coefficients[2],
+             slope=model$coefficients[2],
+             inter=model$coefficients[1])
+  return(ddata)
 })
-kk2
+kk2 <- reduce(kk2,rbind) %>% 
+  rownames_to_column(var='col') %>% 
+  mutate(col=NULL)
 
-#kk3 <- kk2
-c_data$heat <- kk2
+c_data$heat <- kk2$heat
+c_data$slope<- kk2$slope
+c_data$intersect <- kk2$inter
 order_ant <- c('HIV-p24','GFP','Brisavirus','Vientovirus','Coronavirus 229E','Coronavirus HKU1','Norovirus')
 c_data$antigen <- factor(c_data$antigen,levels=rev(order_ant))
 c_data <- c_data %>%
@@ -121,12 +111,14 @@ png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgA-V2.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(IgA, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
-  scale_fill_gradient(low="white", high="black") +
+ # scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   labs(fill='Dilution \nat threshold',
        title='IgA') +
   My_Theme +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(heat,2))) +
   coord_equal()
 dev.off()
 
@@ -134,7 +126,9 @@ png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_IgG-V2.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(IgG, aes(forcats::fct_inorder(SAMPLE_ID),antigen, fill= heat)) + 
   geom_tile() +
-  scale_fill_gradient(low="white", high="black") +
+ # scale_fill_gradient(low="white", high="black") +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(heat,2))) +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   labs(fill='Dilution \nat threshold',
