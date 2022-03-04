@@ -1,5 +1,9 @@
 # modELISA-S
 
+modified Enzyme-Linked ImmunoSorbent Assay --> modELISA
+
+![monalisadots!](monalisa-in-140dots.jpg)
+
 ## Use 
 
 Screening for viral antibodies in saliva samples, using a modified ELISA with viral antigens
@@ -44,7 +48,7 @@ Output:
 
 ## Experimental setup
 
-Modified ELISA to detect antobodies that bind to viral antigens. 
+Modified ELISA to detect antibodies that bind to viral antigens. 
 
 A) Experimental setup
 
