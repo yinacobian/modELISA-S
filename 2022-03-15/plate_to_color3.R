@@ -26,8 +26,9 @@ kk <- apply(j_table,1, function(x){
 
 all_data <- Reduce(rbind,kk) %>%
   mutate(antigen=factor(antigen,rev(c("A:standard","B:HIV,HIV,HIV+","C:HIV,BRISA,HIV+","D:Blank",
-                                       "E:BRISA, BRISA, RV+","F:BRISA,HIV,RV+","G:BRISA, BRISA, RV+","BRISA,HIV,RV+"))))
-
+                                       "E:BRISA, BRISA, RV+","F:BRISA,HIV,RV+","G:BRISA, BRISA, RV+","BRISA,HIV,RV+")))) %>% 
+  mutate(dilutions=factor(dilutions, c("competitor 1 ug","competitor 1/2 ug","competitor 1/4 ug","competitor 1/8 ug","competitor 1/16 ug","competitor 1/32 ug","competitor 1/64 ug","competitor 1/128 ug","competitor 1/256 ug","competitor 1/512 ug", "competitor 1/1024 ug","no competitor")))
+                  
 
 IgG_plot <- all_data %>%
   ggplot( aes(dilutions, antigen,fill= value)) + 
