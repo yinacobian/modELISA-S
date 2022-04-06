@@ -1,0 +1,8 @@
+File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen,row_E_antigen,row_F_antigen,row_G_antigen,row_H_antigen,row_A_sample ,row_B_sample,row_C_sample ,row_D_sample,row_E_sample ,row_F_sample,row_G_sample ,row_H_sample
+2022-04-06-competition-plate.txt,1,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,RV01,RV01,RV01,RV01
+2022-04-06-competition-plate.txt,2,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,RV23,RV23,RV23,RV23
+2022-04-06-competition-plate.txt,3,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,RV37,RV37,RV37,RV37
+2022-04-06-competition-plate.txt,4,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,RV59,RV59,RV59,RV59
+2022-04-06-competition-plate.txt,5,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,IBD074V1,IBD074V1,IBD074V1,IBD074V1
+2022-04-06-competition-plate.txt,6,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,IBD219V1,IBD219V1,IBD219V1,IBD219V1
+2022-04-06-competition-plate.txt,7,p24-standard,HIV-HIV,HIV-BRISA,BLANK,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,p24-antibody,HIV-positive-serum,HIV-positive-serum,BLANK,IBD198V1,IBD198V1,IBD198V1,IBD198V1
