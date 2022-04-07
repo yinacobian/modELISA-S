@@ -20,7 +20,7 @@ kk <- apply(j_table,1, function(x){
   colnames(raw_table) <- c("competitor 4 ug","competitor 2 ug","competitor 1 ug","competitor 1/2 ug","competitor 1/4 ug","competitor 1/8 ug","competitor 1/16 ug","competitor 1/32 ug","competitor 1/64 ug","competitor 1/128 ug", "competitor 1/256 ug","no competitor")
   raw_table %>% 
     rownames_to_column(var="antigen") %>%
-    pivot_longer(`competitor 1 ug`:`no competitor`,names_to = 'dilutions') %>%
+    pivot_longer(`competitor 4 ug`:`no competitor`,names_to = 'dilutions') %>%
     mutate(patient=main_t)
 })
 
@@ -55,9 +55,9 @@ ggsave('standard_plot.pdf',plot = standard_plot, width = 15.2, height = 13.9, un
 #plots for HIV competition experiment
 
 B_all_data <- all_data %>%
-  filter(grepl('B:HIV,HIV,HIV+',antigen))
+  filter(grepl('B:HIV,HIV,HIV+serum',antigen))
 C_all_data <- all_data %>%
-  filter(grepl('C:HIV,BRISA,HIV+',antigen))
+  filter(grepl('C:HIV,BRISA,HIV+serum',antigen))
 
 HIVcurve <- rbind(C_all_data, B_all_data)
 
