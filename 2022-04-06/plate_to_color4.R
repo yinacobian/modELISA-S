@@ -38,7 +38,7 @@ IgG_plot <- all_data %>%
   theme(axis.text.x = element_text(angle = 90)) +
   coord_equal() +
   facet_wrap(~ patient)
-ggsave('competition_plot.pdf',plot = IgG_plot, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
+ggsave('competition_plot.pdf',plot = IgG_plot, width = 15.2, height = 13.9, units = 'in', scale = 1.2)
 
 # standard curve plots
 
@@ -50,14 +50,14 @@ standard_plot <- all_data %>%
   facet_wrap(~ patient) +
   ggpubr::rotate_x_text()
 standard_plot
-ggsave('standard_plot.pdf',plot = standard_plot, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
+ggsave('standard_plot.pdf',plot = standard_plot, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
 
 #plots for HIV competition experiment
 
 B_all_data <- all_data %>%
-  filter(grepl('B:HIV,HIV,HIV+serum',antigen))
+  filter(grepl('B:',antigen))
 C_all_data <- all_data %>%
-  filter(grepl('C:HIV,BRISA,HIV+serum',antigen))
+  filter(grepl('C:',antigen))
 
 HIVcurve <- rbind(C_all_data, B_all_data)
 
@@ -80,17 +80,16 @@ HIV_plot2 <- ggplot(data=HIVcurve) +
   xlab ("Competitor dilutions") +
   ggpubr::rotate_x_text() 
 HIV_plot2
-ggsave('HIV_plot2.png',plot = HIV_plot2, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
-ggsave('HIV_plot2.pdf',plot = HIV_plot2, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
+ggsave('HIV_plot2.pdf',plot = HIV_plot2, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
 
 
 
 #plots for redondovirus competition experiment
 
 E_all_data <- all_data %>%
-  filter(grepl('E:BRISA, BRISA, RV+',antigen))
+  filter(grepl('E:',antigen))
 F_all_data <- all_data %>%
-  filter(grepl('F:BRISA,HIV,RV+',antigen))
+  filter(grepl('F:',antigen))
 
 BRISAcurve <- rbind(E_all_data, F_all_data)
 
@@ -111,8 +110,46 @@ BRISA_plot2 <- ggplot(data=BRISAcurve) +
   xlab ("Competitor dilutions") +
   ggpubr::rotate_x_text() 
 BRISA_plot2
-ggsave('HIV_plot2.png',plot = HIV_plot2, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
-ggsave('HIV_plot2.pdf',plot = HIV_plot2, width = 15.2, height = 13.9, units = 'in', scale = 1.5)
+ggsave('BRISA_plot2.pdf',plot = BRISA_plot2, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
+
+
+#plots for VIENTOVIRUS competition experiment
+
+G_all_data <- all_data %>%
+  filter(grepl('G:',antigen))
+#drop an outlier, probably from plate washing steps: G competitor 2 ug
+#G:VIENTO,VIENTO,serum
+#competitor 2 ug
+#3.7986
+#RV59 group: RV-NEGATIVE
+G_all_data <- G_all_data[-c(38), ]
+
+H_all_data <- all_data %>%
+  filter(grepl('H:',antigen))
+
+
+VIENTOcurve <- rbind(G_all_data, H_all_data)
+
+VIENTO_plot <- ggplot(data=VIENTOcurve) + 
+  geom_point(aes(y=value, x=dilutions, color=antigen, group=antigen), size=3) +
+  geom_line(aes(y=value, x=dilutions, color=antigen, group=antigen)) +
+  facet_wrap(~ patient) +
+  theme_minimal() +
+  ggpubr::rotate_x_text() 
+VIENTO_plot
+
+VIENTO_plot2 <- ggplot(data=VIENTOcurve) + 
+  geom_point(aes(y=value, x=dilutions, color=antigen, group=antigen), size=3) +
+  geom_smooth(method="lm",aes(y=value, x=dilutions, color=antigen, group=antigen)) +
+  facet_wrap(~ patient) +
+  theme_minimal() +
+  ylab ("OD450") +
+  xlab ("Competitor dilutions") +
+  ggpubr::rotate_x_text() 
+VIENTO_plot2
+ggsave('VIENTO_plot2.pdf',plot = VIENTO_plot2, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
+
+
 
 #NICE EXAMPLE
 one <- HIVcurve %>%
