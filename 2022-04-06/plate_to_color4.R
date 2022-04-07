@@ -16,7 +16,7 @@ kk <- apply(j_table,1, function(x){
   if(! file.exists(tablepath)) stop(paste0('Error -- tableFile ' , tablepath , ' file not found.'))
   raw_table <- read.table(tablepath,header = TRUE)
   rownames(raw_table) <- c("A:standard","B:HIV,HIV,HIV+serum","C:HIV,BRISA,HIV+serum","D:Blank",
-                 "E:BRISA,BRISA,serum","F:BRISA,HIV,serum","G:VIENTO,VIENTO,serum","VIENTO,HIV,serum")
+                 "E:BRISA,BRISA,serum","F:BRISA,HIV,serum","G:VIENTO,VIENTO,serum","H:VIENTO,HIV,serum")
   colnames(raw_table) <- c("competitor 4 ug","competitor 2 ug","competitor 1 ug","competitor 1/2 ug","competitor 1/4 ug","competitor 1/8 ug","competitor 1/16 ug","competitor 1/32 ug","competitor 1/64 ug","competitor 1/128 ug", "competitor 1/256 ug","no competitor")
   raw_table %>% 
     rownames_to_column(var="antigen") %>%
@@ -26,7 +26,7 @@ kk <- apply(j_table,1, function(x){
 
 all_data <- Reduce(rbind,kk) %>%
   mutate(antigen=factor(antigen,rev(c("A:standard","B:HIV,HIV,HIV+serum","C:HIV,BRISA,HIV+serum","D:Blank",
-                                      "E:BRISA,BRISA,serum","F:BRISA,HIV,serum","G:VIENTO,VIENTO,serum","VIENTO,HIV,serum")))) %>% 
+                                      "E:BRISA,BRISA,serum","F:BRISA,HIV,serum","G:VIENTO,VIENTO,serum","H:VIENTO,HIV,serum")))) %>% 
   mutate(dilutions=factor(dilutions, c("competitor 4 ug","competitor 2 ug","competitor 1 ug","competitor 1/2 ug","competitor 1/4 ug","competitor 1/8 ug","competitor 1/16 ug","competitor 1/32 ug","competitor 1/64 ug","competitor 1/128 ug", "competitor 1/256 ug","no competitor")))
                   
 
