@@ -65,7 +65,7 @@ all_data <- Reduce(rbind,kk) %>%
                                       "serum 1/300 IgG competitor 4ug no biotin"
                                       )))
                   
-
+##Samples from all the experiment
 IgG_plot <- all_data %>%
   ggplot( aes(dilutions, antigen,fill= value)) + 
   geom_tile(size=1) +
@@ -75,3 +75,66 @@ IgG_plot <- all_data %>%
   coord_equal() +
   facet_wrap(~ patient)
 ggsave('intensities_plot.pdf',plot = IgG_plot, width = 15.2, height = 13.9, units = 'in', scale = 1.2)
+
+
+serum239_all_data <- all_data %>%
+  filter(grepl('serum239 group: HIV-positive',patient))
+serum239_plot <- serum239_all_data %>%
+ggplot( aes(dilutions, antigen,fill= value)) + 
+  geom_tile(size=1) +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(value,2))) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  coord_equal() +
+  facet_wrap(~ patient)
+ggsave('serum239_plot.png',plot = serum239_plot)
+
+serumIBD198V1_all_data <- all_data %>%
+  filter(grepl('serumIBD198V1 group: IBD',patient))
+IBD198_plot <- serumIBD198V1_all_data %>%
+  ggplot( aes(dilutions, antigen,fill= value)) + 
+  geom_tile(size=1) +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(value,2))) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  coord_equal() +
+  facet_wrap(~ patient)
+ggsave('serumIBD198V1_plot.png',plot = IBD198_plot)
+
+serumIBDall_data <- all_data %>%
+  filter(grepl('serumIBD',patient))
+IBD_plot <- serumIBDall_data %>%
+  ggplot( aes(dilutions, antigen,fill= value)) + 
+  geom_tile(size=1) +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(value,2))) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  coord_equal() +
+  facet_wrap(~ patient)
+ggsave('serumIBD_plot.png',plot = IBD_plot,width = 15.2, height = 13.9, units = 'in', scale = 0.8)
+
+serumRVall_data <- all_data %>%
+  filter(grepl('serumHSAL',patient))
+RV_plot <- serumRVall_data %>%
+  ggplot( aes(dilutions, antigen,fill= value)) + 
+  geom_tile(size=1) +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(value,2))) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  coord_equal() +
+  facet_wrap(~ patient)
+ggsave('serumRV_plot.png',plot = RV_plot,width = 15.2, height = 13.9, units = 'in', scale = 0.8)
+
+##Oral Fluid samples 
+OF_all_data <- all_data %>%
+  filter(grepl('OFHSAL',patient))
+OF_plot <- OF_all_data %>%
+ggplot( aes(dilutions, antigen,fill= value)) + 
+  geom_tile(size=1) +
+  scale_fill_gradient(low = "bisque", high = "darkorange3") +
+  geom_text(aes(label=round(value,2))) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  coord_equal() +
+  facet_wrap(~ patient)
+ggsave('OralFluid_plot.pdf',plot = OF_plot, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
+ggsave('OralFluid_plot.png',plot = OF_plot, width = 15.2, height = 13.9, units = 'in', scale = 0.8)
