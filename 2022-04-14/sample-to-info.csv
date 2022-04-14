@@ -1,0 +1,10 @@
+SAMPLE_ID,SUBJECT_ID,IG,GROUP,SPECIMEN
+serum239,239,,HIV-positive,serum
+serumIBD198V1,IBD198V1,,IBD,serum
+serumIBD074V1,IBD074V1,,IBD,serum
+serumHSAL23,HSAL23,,RV-positive,serum
+serumHSAL54,HSAL54,,RV-negative,serum
+OFHSAL51,HSAL51,,RV,Oral fluid
+OFHSAL56,HSAL56,,RV,Oral fluid
+OFHSAL12,HSAL12,,RV,Oral fluid
+OFHSAL05,HSAL05,,RV,Oral fluid

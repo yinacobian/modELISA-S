@@ -1,0 +1,10 @@
+File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen,row_E_antigen,row_F_antigen,row_G_antigen,row_H_antigen,row_A_sample ,row_B_sample,row_C_sample ,row_D_sample,row_E_sample ,row_F_sample,row_G_sample ,row_H_sample
+PILOT3-2022-04-13-raw-plate.txt,1,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,serum239,serum239,serum239,serum239,serum239,serum239,serum239
+PILOT3-2022-04-13-raw-plate.txt,2,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,serumIBD198V1,serumIBD198V1,serumIBD198V1,serumIBD198V1,serumIBD198V1,serumIBD198V1,serumIBD198V1
+PILOT3-2022-04-13-raw-plate.txt,3,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,serumIBD074V1,serumIBD074V1,serumIBD074V1,serumIBD074V1,serumIBD074V1,serumIBD074V1,serumIBD074V1
+PILOT3-2022-04-13-raw-plate.txt,4,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,serumHSAL23,serumHSAL23,serumHSAL23,serumHSAL23,serumHSAL23,serumHSAL23,serumHSAL23
+PILOT3-2022-04-13-raw-plate.txt,5,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54
+PILOT3-2022-04-13-raw-plate.txt,6,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,OFHSAL51,OFHSAL51,OFHSAL51,OFHSAL51,OFHSAL51,OFHSAL51,OFHSAL51
+PILOT3-2022-04-13-raw-plate.txt,7,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,OFHSAL56,OFHSAL56,OFHSAL56,OFHSAL56,OFHSAL56,OFHSAL56,OFHSAL56
+PILOT3-2022-04-13-raw-plate.txt,8,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,OFHSAL12,OFHSAL12,OFHSAL12,OFHSAL12,OFHSAL12,OFHSAL12,OFHSAL12
+PILOT3-2022-04-13-raw-plate.txt,9,p24-standard,HIV-HIV,GFP,No antigen ,BRISA,VIENTO,BRISA,VIENTO,p24-antibody,OFHSAL05,OFHSAL05,OFHSAL05,OFHSAL05,OFHSAL05,OFHSAL05,OFHSAL05
