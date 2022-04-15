@@ -1,0 +1,5 @@
+File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen,row_E_antigen,row_F_antigen,row_G_antigen,row_H_antigen,row_A_sample ,row_B_sample,row_C_sample ,row_D_sample,row_E_sample ,row_F_sample,row_G_sample ,row_H_sample
+PILOT4-2022-04-15.txt,1,p24-standard,HIV-HIV,HIV-BRISA,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,No antigen,p24-antibody,serum239,serumHSAL37,serumHSAL37,serumHSAL37,serumHSAL37,serumHSAL37,serumHSAL37
+PILOT4-2022-04-15.txt,2,p24-standard,HIV-HIV,HIV-BRISA,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,No antigen,p24-antibody,serum239,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54,serumHSAL54
+PILOT4-2022-04-15.txt,3,p24-standard,HIV-HIV,HIV-BRISA,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,No antigen,p24-antibody,serum239,IBD198V1,IBD198V1,IBD198V1,IBD198V1,IBD198V1,IBD198V1
+PILOT4-2022-04-15.txt,4,p24-standard,HIV-HIV,HIV-BRISA,BRISA-BRISA,BRISA-HIV,VIENTO-VIENTO,VIENTO-HIV,No antigen,p24-antibody,serum239,IBD198V2,IBD198V2,IBD198V2,IBD198V2,IBD198V2,IBD198V2
